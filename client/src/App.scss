@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Proxima Nova", Roboto, system-ui, Tahoma, sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  padding: 20px;
+  background: #f5f3f3;
+  border-radius: 10px;
+  width: 700px;
+
+  h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+
+  &__form {
+    width: 300px;
+    padding: 8px 25px;
+    border: none;
+    outline: none;
+    background: #ececec;
+    border-radius: 30px;
+    border: 1px solid transparent;
+    margin-bottom: 20px;
+    font-family: "Proxima Nova", Roboto, system-ui, Tahoma, sans-serif;
+
+    &:focus {
+      border: 1px solid #a9a9a9;
+    }
+  }
+
+  &__content {
+    .fa-plus {
+      position: absolute;
+      bottom: 10px;
+      right: 13px;
+      border-radius: 50%;
+      padding: 9px 12px;
+      font-size: 14px;
+      color: #fff;
+      background: #f69f00;
+      transition: all ease 0.3s;
+      font-style: normal;
+      &:hover {
+        background: darken(#f69f00, 5%);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  &__item {
+    background: #fff;
+    border: 1px solid #f6f2f2;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 10px;
+    max-height: 80px;
+    overflow: hidden;
+    // text-overflow: ellipsis;
+    margin-bottom: 10px;
+    font-size: 12px;
+    word-break: break-all;
+    width: 120px;
+    cursor: pointer;
+    cursor: pointer;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  &.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__content {
+    position: relative;
+    border: 1px solid #c4c4c4;
+    background: #fff;
+    width: 700px;
+    padding: 20px;
+    animation-name: animatetop;
+    animation-duration: 0.5s;
+
+    .fa-arrow-left {
+      position: absolute;
+      top: 10px;
+      left: 16px;
+      cursor: pointer;
+      font-style: normal;
+      font-size: 22px;
+      transform: rotate(180deg);
+    }
+    .fa-check {
+      position: absolute;
+      top: 10px;
+      right: 40px;
+      cursor: pointer;
+      display: none;
+      font-style: normal;
+      &.active-modal {
+        right: 16px;
+        display: block;
+      }
+      &.active {
+        display: block;
+      }
+    }
+    .fa-times {
+      font-style: normal;
+      position: absolute;
+      top: 10px;
+      right: 16px;
+      cursor: pointer;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    resize: none;
+    outline: none;
+    padding: 5px;
+    border: none;
+    font-family: "Proxima Nova", Roboto, system-ui, Tahoma, sans-serif;
+  }
+}
+
+@keyframes animatetop {
+  0% {
+    top: -300px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
