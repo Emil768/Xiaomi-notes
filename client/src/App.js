@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Route } from "react-router";
 import "./App.scss";
-import ModalInfo from "./components/ModalInfo";
+
 import Notes from "./components/Notes";
 
 function App() {
