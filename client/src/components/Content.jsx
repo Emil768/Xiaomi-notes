@@ -20,9 +20,9 @@ function Content() {
   }, []);
 
   let emptyNotes = "Список заметок пуст!";
-  // let filterNotes = notesValue.filter((note) => {
-  //   return note.text.toLowerCase().indexOf(searchText.toLowerCase()) !== -1;
-  // });
+  let filterNotes = notesValue.filter((note) => {
+    return note.text.toLowerCase().indexOf(searchText.toLowerCase()) !== -1;
+  });
 
   return (
     <div className="App__content">
