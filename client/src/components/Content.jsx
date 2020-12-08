@@ -15,7 +15,7 @@ function Content() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/notes")
+      .get("https://xioami-notes.herokuapp.com/notes")
       .then((res) => setNotesValue(res.data.notes));
   }, []);
 

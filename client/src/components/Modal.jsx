@@ -17,7 +17,7 @@ function Modal() {
 
   //fun
   let addNotes = () => {
-    axios.post("http://localhost:3001/notes/add", {
+    axios.post("https://xioami-notes.herokuapp.com/notes/add", {
       text: value,
     });
     closeModal();

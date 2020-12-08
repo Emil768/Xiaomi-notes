@@ -12,7 +12,7 @@ function ModalInfo() {
   useEffect(() => {
     document.body.addEventListener("click", handlerClickBody);
     axios
-      .get("http://localhost:3001/notes")
+      .get("https://xioami-notes.herokuapp.com/notes")
       .then((res) => setNoteValue(res.data.notes))
       .then(noteValue[index] ? setNewValue(noteValue[index].text) : "no")
       .then(
@@ -54,7 +54,7 @@ function ModalInfo() {
   };
 
   let onUpdateNote = () => {
-    axios.put("http://localhost:3001/notes/update", {
+    axios.put("https://xioami-notes.herokuapp.com/notes/update", {
       id: noteId,
       text: newValue,
     });
@@ -64,7 +64,7 @@ function ModalInfo() {
   let onDeleteNote = () => {
     let confirm = window.confirm("Вы точно хотите удалить заметку?");
     if (confirm) {
-      axios.delete(`http://localhost:3001/notes/delete/${noteId}`);
+      axios.delete(`https://xioami-notes.herokuapp.com/notes/delete/${noteId}`);
       closeModalInfo();
       window.location.reload();
     } else {
