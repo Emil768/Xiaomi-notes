@@ -5,16 +5,17 @@ let bodyParser = require("body-parser");
 let mysql = require("mysql");
 
 let app = express();
+const PORT = 3001;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
 
 let connection = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "root",
-  password: "emil22878",
-  database: "notesjs",
+  host: "us-cdbr-east-02.cleardb.com",
+  user: "b5d15f3840b45d",
+  password: "c2bbb2e6",
+  database: "heroku_2a458442454bd6d",
 });
 
 app.get("/notes", (req, res) => {
@@ -71,6 +72,7 @@ app.delete("/notes/delete/:id", (req, res) => {
   });
 });
 
-app.listen(3001, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log("Server is starting from 3001 port...");
 });
+
