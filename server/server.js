@@ -19,7 +19,7 @@ let connection = mysql.createConnection({
 });
 
 app.get("/notes", (req, res) => {
-  connection.query("select* from notes", (err, result) => {
+  connection.query("select* from heroku_2a458442454bd6d.notes", (err, result) => {
     if (err) {
       res.send(err);
     } else {
@@ -32,7 +32,7 @@ app.get("/notes", (req, res) => {
 
 //insert
 app.post("/notes/add", (req, res) => {
-  let sqlInsert = "insert into notes(text) values(?)";
+  let sqlInsert = "insert into heroku_2a458442454bd6d.notes(text) values(?)";
   let text = req.body.text;
   connection.query(sqlInsert, text, (err, result) => {
     if (err) {
@@ -48,7 +48,7 @@ app.post("/notes/add", (req, res) => {
 app.put("/notes/update", (req, res) => {
   let id = req.body.id;
   let text = req.body.text;
-  let sqlUpdate = "update notes set text = ? where id = ?";
+  let sqlUpdate = "update heroku_2a458442454bd6d.notes set text = ? where id = ?";
   connection.query(sqlUpdate, [text, id], (err, result) => {
     if (err) {
       console.log(err);
@@ -60,7 +60,7 @@ app.put("/notes/update", (req, res) => {
 
 //delete
 app.delete("/notes/delete/:id", (req, res) => {
-  let sqlDelete = "delete from notes where id = ?";
+  let sqlDelete = "delete from heroku_2a458442454bd6d.notes where id = ?";
   let id = req.params.id;
   console.log(req.body);
   connection.query(sqlDelete, id, (err, result) => {
