@@ -38,7 +38,6 @@ function Content() {
       <i onClick={openModal} className="fa fa-plus" aria-hidden="true">
         &#10010;
       </i>
-
       <Modal />
       <ModalInfo />
     </div>
